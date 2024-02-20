@@ -1,3 +1,7 @@
+# Introduction 
+
+This is a fun little Notes project I made using ReactJS, NodeJS and Supabase. Its main purpose was to give me a start into the world of React in order to understand how a full stack app works and to have a nice little first full stack side project. 
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
