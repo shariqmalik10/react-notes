@@ -1,8 +1,11 @@
-import Card from "./components/Note";
+import NewNote from "./components/NewNote";
+import NotesList from "./components/NotesList";
+
 import { useState } from "react";
 import Button from "./components/Button";
 import "./App.css";
 import NavBar from "./components/NavBar";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 export default function App() {
   const [currentIndex, changeIndex] = useState(0);
@@ -32,17 +35,24 @@ export default function App() {
 
   return (
     <>
-      <div className="h-screen bg-cyan-800">
-        <div className="flex justify-center h-13">
-          <h1 className="text-center text-emerald-400 mt-3 text-5xl w-1/2">
-            React Notes
-          </h1>
-        </div>
+      <Router>
+          <div className="h-screen bg-cyan-800">
+            <div className="flex justify-center h-13">
+              <h1 className="text-center text-emerald-400 mt-3 text-5xl w-1/2">
+                React Notes
+              </h1>
+            </div>
 
-        <NavBar />
-        <Card />
-
-      </div>
+            <NavBar />
+            
+            <Routes>
+              <Route path="/" element={<NewNote />}/>
+              <Route path="/allnotes" element={<NotesList />}/>
+              <Route path="/newnotes" element={<NewNote />}/>
+            </Routes>
+          
+          </div>
+        </Router>
     </>
   );
 }

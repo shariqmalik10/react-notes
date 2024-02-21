@@ -48,7 +48,24 @@ app.post("/submit-form", async (req, res) => {
 });
 
 //display all the data to the user
+app.get("/get-notes", async (req, res) => {
 
+  try {
+    const {error, data} = await supabase
+      .from("notes")
+      .select()
+    
+    if (error) {
+      console.log(`Error occured while saving note: ${error.message}`);
+      return res.status(500).send("Error inserting note.");
+    }
+
+    res.send(data);
+  } catch(err) {
+      console.error("Error while retrieving notes ", err);
+      res.status(500).send("Error while retrieving notes");
+  }
+})
 
 //start and check server run
 app.listen(port, () => {

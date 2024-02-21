@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Note() {
+function NewNote() {
   const [noteData, setNoteData] = useState({
     title: "",
     content: "",
@@ -30,12 +30,11 @@ function Note() {
   };
 
   return (
-    <>
-      <div className="mt-3 container flex flex-col justify-center border border-sky-500 rounded-lg items-center">
-        <h3 className="text-center text-emerald-400 mt-1 text-3xl w-1/2">
-          Write a Note
-        </h3>
-
+  <>
+    <div className="mt-3 container flex flex-col justify-center border border-sky-500 rounded-lg items-center">
+      <h3 className="text-center text-emerald-400 mt-1 text-3xl w-1/2">
+        Write a Note
+      </h3>
         <form
           id="newNote"
           onSubmit={handleSubmit}
@@ -71,4 +70,4 @@ function Note() {
   );
 }
 
-export default Note;
+export default NewNote;
