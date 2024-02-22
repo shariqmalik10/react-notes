@@ -49,23 +49,43 @@ app.post("/submit-form", async (req, res) => {
 
 //display all the data to the user
 app.get("/get-notes", async (req, res) => {
-
   try {
-    const {error, data} = await supabase
-      .from("notes")
-      .select()
-    
+    const { error, data } = await supabase.from("notes").select();
+
     if (error) {
       console.log(`Error occured while saving note: ${error.message}`);
       return res.status(500).send("Error inserting note.");
     }
 
     res.send(data);
-  } catch(err) {
-      console.error("Error while retrieving notes ", err);
-      res.status(500).send("Error while retrieving notes");
+  } catch (err) {
+    console.error("Error while retrieving notes ", err);
+    res.status(500).send("Error while retrieving notes");
   }
-})
+});
+
+//delete all selected notes
+app.delete("/delete-notes", async (req, res) => {
+  console.log(req.body);
+  try {
+    const { ids } = req.body;
+    console.log(ids);
+    const { error, data } = await supabase
+      .from("notes")
+      .delete()
+      .in('id', ids)
+
+    if (error) {
+      console.log(`Error occured while deleting note(s): ${error.message}`);
+      return res.status(500).send("Error deleting note.");
+    }
+
+    res.send(data);
+  } catch (err) {
+    console.error("Error while retrieving notes ", err);
+    res.status(500).send("Error while retrieving notes");
+  }
+});
 
 //start and check server run
 app.listen(port, () => {
