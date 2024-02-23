@@ -4,7 +4,10 @@ This is a fun little Notes project I made using ReactJS, NodeJS and Supabase. It
 
 # Demo Vid
 Here is a demo of the video (Note that this is not the final version and is being currently worked on to improve the UI and add more features
+
 <div style="position: relative; padding-bottom: 62.5%; height: 0;"><iframe src="https://www.loom.com/embed/aa9bc27e88654a9cb84a1bbc2adfe4bb?sid=82bb0ee5-86b2-4c32-b017-16882c58aba4" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+<h1>Hello World </h1>
 
 # React + TypeScript + Vite
 
